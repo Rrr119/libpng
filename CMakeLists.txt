@@ -373,6 +373,9 @@ set(pngstest_sources
 set(pnggetset_sources
     contrib/libtests/pnggetset.c
 )
+set(pngapng_sources
+    contrib/libtests/pngapng.c
+)
 set(pngreadend_sources
     contrib/libtests/pngreadend.c
 )
@@ -540,6 +543,15 @@ if(PNG_TESTS AND PNG_SHARED)
 
   png_add_test(NAME pnggetset
                COMMAND pnggetset)
+
+  # pngapng test:
+  # Multi-frame APNG read/write roundtrip.
+  add_executable(pngapng ${pngapng_sources})
+  target_link_libraries(pngapng
+                        PRIVATE png_shared)
+
+  png_add_test(NAME pngapng
+               COMMAND pngapng)
 
   # pngreadend test:
   # Reading the end of a PNG without reading the image.

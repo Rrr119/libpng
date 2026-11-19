@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# pngapng test:
+# Multi-frame APNG read/write roundtrip.
+exec ./pngapng

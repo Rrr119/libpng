@@ -2883,9 +2883,21 @@ png_write_filtered_row(png_struct *png_ptr, png_byte *filtered_row,
 void /* PRIVATE */
 png_write_reset(png_struct *png_ptr)
 {
+   /* Each APNG frame has its own zlib stream and row filtering state.  Free
+    * the row buffers so that the next frame starts with clean previous-row
+    * data, regardless of the frame dimensions.
+    */
+   png_free(png_ptr, png_ptr->row_buf);
+   png_ptr->row_buf = NULL;
+#ifdef PNG_WRITE_FILTER_SUPPORTED
+   png_free(png_ptr, png_ptr->prev_row);
+   png_ptr->prev_row = NULL;
+#endif
+
    png_ptr->row_number = 0;
    png_ptr->pass = 0;
    png_ptr->mode &= ~PNG_HAVE_IDAT;
+   png_ptr->mode &= ~PNG_AFTER_IDAT;
 }
 
 void /* PRIVATE */

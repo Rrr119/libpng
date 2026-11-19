@@ -1,0 +1,17 @@
+{
+  "root": "/home/dev/feedback/uid26918",
+  "B": "/home/dev/feedback/uid26918",
+  "sha": "210d74486b6eae6d09d6348d0ab0af2a5a5416dd",
+  "wslDistro": "Ubuntu-26.04",
+  "source": {
+    "owner": "pnggroup",
+    "repo": "libpng",
+    "sha": "210d74486b6eae6d09d6348d0ab0af2a5a5416dd"
+  },
+  "fork": {
+    "owner": "Rrr119",
+    "repo": "libpng",
+    "cloneUrl": "https://github.com/Rrr119/libpng.git"
+  },
+  "at": "2026-11-19T06:57:46.125Z"
+}

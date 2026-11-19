@@ -1441,17 +1441,6 @@ png_set_next_frame_fcTL(png_struct *png_ptr, png_info *info_ptr,
     * They can hold any 16-bit value, including zero.
     */
 
-   if (blend_op == PNG_fcTL_BLEND_OP_OVER)
-   {
-      if (!(png_ptr->color_type & PNG_COLOR_MASK_ALPHA) &&
-          !(png_get_valid(png_ptr, info_ptr, PNG_INFO_tRNS)))
-      {
-         png_warning(png_ptr,
-                     "Ignoring wasteful fcTL BLEND_OP_OVER in opaque images");
-         blend_op = PNG_fcTL_BLEND_OP_SOURCE;
-      }
-   }
-
    info_ptr->next_frame_width = width;
    info_ptr->next_frame_height = height;
    info_ptr->next_frame_x_offset = x_offset;
